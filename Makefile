@@ -1,15 +1,10 @@
-objects = utils.o phpk.o testphpk.o
-testphpk: $(objects)
-	cc -o testphpk $(objects)
+COMPILER_OPTIONS := -g -Wall
+CXXFLAGS := -std=c++17 $(COMPILER_OPTIONS)
+objects = $(patsubst %.cpp, %, $(wildcard *.cpp))
 
-testphpk.o : phpk.h
+all: $(objects)
+
+clean: 
+	rm  $(objects)
 
 
-phpk.o : utils.h
-
-
-utils.o : utils.c
-
-.PHONY : clean
-clean :
-	rm testphpk testphpk.o

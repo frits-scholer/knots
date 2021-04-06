@@ -78,7 +78,7 @@ void rowcod(int p, int b, const char *code) {
     k=0;
     for (j=1;j<p;j++)
       if (i>=cbs[j]) //printf("R = %d ",(2*I[i]+j+p)%(2*b));
-	rl[k++]=rowcode[(2*I[i]+j+p)%(2*b)]=='o'?'u':'o';
+	rl[k++]=rowcode[(2*I[i%b]+j+p)%(2*b)]=='o'?'u':'o';
     rl[k]='\0';
     printhc(rl,rlo);
     printf("%s",rlo);
