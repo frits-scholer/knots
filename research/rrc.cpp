@@ -77,9 +77,10 @@ void solve() {
   r = code.length()/2;
   int cl = code.length();
   print("repeating code:", code, "length:", cl, "repeat:", r);
-  vi cbs(p);
+  vi cbs(b);
   int delta = b - (p%b);
   rep(i,b) cbs[(i*delta)%b]=i;
+  cbs.resize(p); 
   if (p>b) rep(i,b,p) cbs[i]=cbs[i%b];
   print("complementary bight scheme:");
   cbs = vi(begin(cbs)+1, end(cbs));
