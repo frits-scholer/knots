@@ -63,9 +63,10 @@ void shpkcomp(int p,int b,int A,int L,int R) {
   printf("\nA = %d L = %d R = %d\n",A,L,R);
   printf("P = %d B* = %d\n",p,b);
   //make complementary bight scheme
-  vi cbs(p);
+  vi cbs(b);
   int delta = b - (p%b);
   rep(i,b) cbs[(i*delta)%b]=i;
+  cbs.resize(p); 
   if (p>b) rep(i,b,p) cbs[i]=cbs[i%b];
   //Reference cycles
   vi lset(p), rset(p);
